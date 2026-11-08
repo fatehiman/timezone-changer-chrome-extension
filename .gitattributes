@@ -1,0 +1,14 @@
+* text=auto eol=lf
+*.png binary
+
+# Not part of the extension package (git archive / release zip)
+reference-docs/ export-ignore
+*.md export-ignore
+tools/ export-ignore
+.claude/ export-ignore
+.github/ export-ignore
+.gitignore export-ignore
+.gitattributes export-ignore
+package.json export-ignore
+package-lock.json export-ignore
+screenshots/ export-ignore

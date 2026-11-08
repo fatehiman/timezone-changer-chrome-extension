@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Timezone Changer",
+  "short_name": "TZ Changer",
+  "version": "1.0.0",
+  "description": "Force another time zone on the websites you choose. Wildcards like *.cloudflare.* are supported. Click the icon to turn it on or off.",
+  "minimum_chrome_version": "120",
+  "permissions": ["storage", "scripting", "webNavigation", "debugger", "userScripts"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Timezone Changer",
+    "default_icon": {
+      "16": "icons/clock-on-16.png",
+      "32": "icons/clock-on-32.png",
+      "48": "icons/clock-on-48.png",
+      "128": "icons/clock-on-128.png"
+    }
+  },
+  "options_ui": {
+    "page": "src/options.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "16": "icons/clock-on-16.png",
+    "32": "icons/clock-on-32.png",
+    "48": "icons/clock-on-48.png",
+    "128": "icons/clock-on-128.png"
+  }
+}

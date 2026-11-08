@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Timezone Changer – Settings</title>
+  <link rel="icon" href="../icons/clock-on-32.png">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main>
+    <header>
+      <img id="logo" src="../icons/clock-on-128.png" alt="" width="56" height="56">
+      <div>
+        <h1>Timezone Changer</h1>
+        <p class="muted">Force another time zone on the websites you choose.</p>
+      </div>
+    </header>
+
+    <section class="card">
+      <label class="switch">
+        <input type="checkbox" id="enabled">
+        <span class="slider" aria-hidden="true"></span>
+        <span class="switch-label">Enabled</span>
+      </label>
+      <p class="muted small">Tip: click the extension icon in the toolbar to turn it on or off quickly.</p>
+    </section>
+
+    <section class="card">
+      <h2><label for="tzSearch">Time zone</label></h2>
+      <input type="search" id="tzSearch" placeholder="Search, e.g. Tehran, Berlin or +03:30" autocomplete="off">
+      <select id="tz" size="10" aria-label="Time zone"></select>
+      <p class="now">Time there now: <strong id="nowThere">–</strong></p>
+    </section>
+
+    <section class="card">
+      <h2><label for="domains">Websites</label></h2>
+      <p class="muted small">One per line. <code>*</code> matches anything.
+        <code>*.example.com</code> also matches <code>example.com</code> itself.
+        Lines starting with <code>#</code> are comments.</p>
+      <textarea id="domains" rows="9" spellcheck="false"
+        placeholder="e.g.&#10;*.cloudflare.*&#10;example.com&#10;*.google.com"></textarea>
+
+      <div class="test">
+        <label for="testHost">Test a website:</label>
+        <input type="text" id="testHost" placeholder="e.g. https://dash.cloudflare.com/login" autocomplete="off">
+        <span id="testResult" class="small"></span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Mode</h2>
+      <label class="radio">
+        <input type="radio" name="mode" value="inject">
+        <span><strong>Injection</strong> (recommended)<br>
+          <span class="muted small">Changes <code>Date</code> and <code>Intl</code> inside the page.
+          No warning bar. Reload the page after a change.</span></span>
+      </label>
+      <div id="usBox" class="note small" hidden></div>
+
+      <label class="radio">
+        <input type="radio" name="mode" value="debugger">
+        <span><strong>Debugger</strong><br>
+          <span class="muted small">Uses Chrome's own time zone emulation, so it covers more cases
+          (for example web workers). Chrome shows a bar
+          "Timezone Changer started debugging this browser" while it is active.</span></span>
+      </label>
+    </section>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+  </main>
+
+  <script type="module" src="options.js"></script>
+</body>
+</html>
